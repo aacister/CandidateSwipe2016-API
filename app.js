@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var cors = require('cors');
-
+var passport = require('passport');
 
 mongoose.set('debug', true);
 
@@ -15,9 +15,11 @@ mongoose.connect('mongodb://localhost/CandidateSwipe2016', function(err) {
 });
 
 require('./models/Candidates');
+require('./models/Users');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+
 
 var app = express();
 

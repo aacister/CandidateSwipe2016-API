@@ -12,8 +12,16 @@
     "ejs": "~2.3.3",
     "express": "~4.13.1",
     "mongoose": "^4.5.0",
+    "mongoose-deep-populate": "^3.0.0",
     "morgan": "~1.6.1",
     "serve-favicon": "~2.3.0",
-    "cors": "^2.7.1"
+    "cors": "^2.7.1",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "express-jwt": "^3.3.0",
+    "express-session": "^1.13.0",
+    "jsonwebtoken": "^5.7.0",
+    "bcrypt-nodejs": "0.0.3",
+    "connect-flash": "^0.1.1"
   }
 }
