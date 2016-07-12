@@ -64,7 +64,7 @@ passport.use('local-login', new LocalStrategy({
 
          //  Whether we're signing up or connecting an account, we'll need
          //  to know if the email address is in use.
-         User.findOne({'local.username': username}, function(err, existingUser) {
+         User.findOne({'username': username}, function(err, existingUser) {
 
              // if there are any errors, return the error
              if (err)
@@ -78,9 +78,9 @@ passport.use('local-login', new LocalStrategy({
              if(req.user) {
                console.log('Already logged in.')
 
-                 var user            = req.user;
-                 user.local.username   = username;
-                 user.local.password = user.generateHash(password);
+                 var user  = req.user;
+                 user.username   = username;
+                 user.password = user.generateHash(password);
                  user.save(function(err) {
                      if (err)
                          throw err;
@@ -93,8 +93,8 @@ passport.use('local-login', new LocalStrategy({
 
                  var newUser            = new User();
 
-                 newUser.local.username    = username;
-                 newUser.local.password = newUser.generateHash(password);
+                 newUser.username    = username;
+                 newUser.password = newUser.generateHash(password);
 
 
                  newUser.save(function(err) {
