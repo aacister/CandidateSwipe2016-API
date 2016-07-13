@@ -10,10 +10,16 @@ var passport = require('passport');
 
 mongoose.set('debug', true);
 
+//heroke db connection
+mongoose.connect('mongodb://aacister:password123@ds019033.mlab.com:19033/heroku_mjbh9lc4', function(err){
+  if(err) throw err;
+})
+//local db connection
+/*
 mongoose.connect('mongodb://localhost/CandidateSwipe2016', function(err) {
     if (err) throw err;
 });
-
+*/
 require('./models/Candidates');
 require('./models/Users');
 

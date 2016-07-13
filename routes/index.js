@@ -97,7 +97,7 @@ router.get('/users/:user/results', function(req, res){
 });
 
 // Add a result
-router.put('/user/:user/results/:candidate/vote',  function(req, res, next) {
+router.put('/user/:user/results/:candidate/vote', function(req, res, next) {
         var candidate = req.candidate;
             //save result to User
             req.user.results.push(candidate);
@@ -118,7 +118,7 @@ router.put('/user/:user/results/:candidate/vote',  function(req, res, next) {
 });
 
 //Delete a result
-router.delete('/user/:user/results/:candidate', function(req, res, next) {
+router.delete('/user/:user/results/:candidate', auth, function(req, res, next) {
       var candidate = req.candidate;
 
             //Remove user flight and Save user
@@ -169,7 +169,8 @@ router.post('/login', function(req, res, next) {
                 token: user.generateJWT()
             });
         } else {
-            return res.status(401).json(info);
+          //  return res.status(401).json(info);
+          return res.status(401);
         }
     })(req, res, next);
 });
